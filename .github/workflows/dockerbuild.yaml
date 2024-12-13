@@ -30,7 +30,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add deployment.yaml
+          git add crud-api-deployment.yaml
           git commit -m "Update image tag to ${{ github.sha }}"
           git push
         env:
