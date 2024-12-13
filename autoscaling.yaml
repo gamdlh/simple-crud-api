@@ -2,6 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: simple-crud-api-hpa
+  namespace: simple-crud-api
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

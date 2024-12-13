@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simple-crud-api
+  namespace: simple-crud-api
 spec:
   replicas: 3
   selector:
