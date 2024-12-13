@@ -18,6 +18,22 @@ jobs:
 
       - name: Build and Push Image
         run: | 
-          docker build -t guidosdocker/simple-crud-api:latest .
-          docker tag guidosdocker/simple-crud-api:latest guidosdocker/simple-crud-api:latest
-          docker push guidosdocker/simple-crud-api:latest
+          docker build -t guidosdocker/simple-crud-api:${{ github.sha }} .
+          docker tag guidosdocker/simple-crud-api:${{ github.sha }} guidosdocker/simple-crud-api:${{ github.sha }}
+          docker push guidosdocker/simple-crud-api:${{ github.sha }}
+      
+      - name: Update Deployment Manifest
+        run: |
+          sed -i "s|image: guidosdocker/simple-crud-api:.*|image: guidosdocker/simple-crud-api:${{ github.sha }}|" crud-api-deployment.yaml
+      
+      - name: Commit and Push Changes 
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add deployment.yaml
+          git commit -m "Update image tag to ${{ github.sha }}"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+           
