@@ -16,7 +16,7 @@ spec:
       containers:
       - name: simple-crud-api
         image: guidosdocker/simple-crud-api:latest
-        imagesPullPolicy: Always
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "128Mi"
