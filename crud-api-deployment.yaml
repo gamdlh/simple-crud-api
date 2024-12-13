@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: simple-crud-api
-        image: guidosdocker/simple-crud-api:latest
+        image: guidosdocker/simple-crud-api:a4d2997cffec41b7440d269d35acb2a87a6608d4
         imagePullPolicy: Always
         resources:
           limits:
