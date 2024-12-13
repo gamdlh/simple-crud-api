@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and Push Image
-        run: 
+        run: | 
           docker build -t guidosdocker/simple-crud-api:latest .
           docker tag simple-crud-api:latest guidosdocker/simple-crud-api:latest
           docker push guidosdocker/simple-crud-api:latest
