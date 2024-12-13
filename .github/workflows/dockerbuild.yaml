@@ -18,6 +18,6 @@ jobs:
 
       - name: Build and Push Image
         run: 
-          docker build -t guidosdocker/simple-crud-api:${{ github.sha }}
+          docker build -t guidosdocker/simple-crud-api:${{ github.sha }} .
           docker tag simple-crud-api:${{ github.sha }} guidosdocker/simple-crud-api:${{ github.sha }}
           docker push guidosdocker/simple-crud-api:${{ github.sha }}
